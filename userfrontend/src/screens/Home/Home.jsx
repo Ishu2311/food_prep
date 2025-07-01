@@ -15,8 +15,8 @@ const Home = () => {
         setCategory = { setCategory }
         /> <
         FoodDisplay category = { category }
-        /> <
-        /div>
+        /> < /
+        div >
     );
 };
 

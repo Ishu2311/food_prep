@@ -40,8 +40,7 @@ const App = () => {
                 />  <
                 Route path = "/myorders"
                 element = { < MyOrders / > }
-                /> <
-                /
+                /> < /
                 Routes > <
                 /div> <
                 Footer / >

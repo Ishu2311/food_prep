@@ -1,7 +1,7 @@
 import { useState, useEffect, useContext } from 'react';
 import { assets } from '../../assets/assets';
 import './MyOrders.css';
-import { StoreContext } from '../../Context/StoreContext';
+import { StoreContext } from '../../context/StoreContext';
 import axios from 'axios';
 import Loader from '../../components/Loader/Loader';
 import { toast } from 'react-toastify';
