@@ -1,0 +1,64 @@
+/* Light Theme Default Styles */
+
+body {
+    color: black;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+
+/* Global Dark Theme Styles */
+
+body.dark-mode {
+    background-color: #121212;
+}
+
+
+/* Header / Navbar already handled in Navbar.css */
+
+
+/* Sections, Cards, Footers, Buttons, Inputs, etc. */
+
+section,
+.card,
+.footer,
+.recipe-card {
+    color: black;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark-mode section,
+body.dark-mode .card,
+body.dark-mode .footer,
+body.dark-mode .recipe-card {
+    background-color: #1e1e1e;
+}
+
+
+/* Buttons */
+
+button {
+    background-color: transparent;
+    color: black;
+    border: 1px solid gray;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark-mode button {
+    color: white;
+    border-color: white;
+}
+
+
+/* Inputs */
+
+input,
+textarea {
+    color: black;
+    border: 1px solid #ccc;
+}
+
+body.dark-mode input,
+body.dark-mode textarea {
+    background-color: #333;
+    border: 1px solid #555;
+}

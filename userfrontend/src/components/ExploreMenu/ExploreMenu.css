@@ -2,6 +2,15 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
+    background-color: white;
+    color: black;
+    padding: 20px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark-mode .explore-menu {
+    background-color: #1e1e1e;
+    color: white;
 }
 
 .explore-menu-h1 {
@@ -10,9 +19,17 @@
     font-weight: 500;
 }
 
+body.dark-mode .explore-menu-h1 {
+    color: white;
+}
+
 .explore-menu-text {
     max-width: 60%;
     color: #808080;
+}
+
+body.dark-mode .explore-menu-text {
+    color: #d1d5db;
 }
 
 .explore-menu-list {
@@ -44,11 +61,19 @@
     cursor: pointer;
 }
 
+body.dark-mode .explore-menu-list-item p {
+    color: #d1d5db;
+}
+
 .explore-menu hr {
     margin: 10px 0;
     height: 2px;
     border: none;
     background-color: #e2e2e2;
+}
+
+body.dark-mode .explore-menu hr {
+    background-color: #555;
 }
 
 .explore-menu-list-item .active {

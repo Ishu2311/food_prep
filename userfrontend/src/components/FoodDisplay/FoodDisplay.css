@@ -1,10 +1,23 @@
 .food-display {
     margin-top: 30px;
+    background-color: white;
+    color: black;
+    padding: 20px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark-mode .food-display {
+    background-color: #1e1e1e;
+    color: white;
 }
 
 .food-display h2 {
     font-size: max(2vw, 2.4rem);
     font-weight: 600;
+}
+
+body.dark-mode .food-display h2 {
+    color: white;
 }
 
 .food-display-list {

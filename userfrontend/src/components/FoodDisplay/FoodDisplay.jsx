@@ -12,8 +12,7 @@ const FoodDisplay = ({ category }) => {
         <
         h2 > Top dishes near you < /h2> <
         div className = "food-display-list" > {
-            food_list
-            .map((item, index) => {
+            food_list.map((item) => {
                 if (category === "All" || item.category === category) {
                     return ( <
                         FoodCard key = { item._id }
@@ -27,9 +26,10 @@ const FoodDisplay = ({ category }) => {
                 }
                 return null;
             })
-        } < /div> <
+        } <
+        /div> <
         /div>
-    )
+    );
 };
 
 export default FoodDisplay;

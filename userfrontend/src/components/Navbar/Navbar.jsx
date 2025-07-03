@@ -6,32 +6,51 @@ import { StoreContext } from "../../context/StoreContext";
 
 const Navbar = ({ setShowLogin }) => {
     const [menu, setMenu] = useState("home");
+    const [darkMode, setDarkMode] = useState(false);
     const navigate = useNavigate();
     const location = useLocation();
-    const { getTotalCartAmount, token, setToken, setCartItems } =
-    useContext(StoreContext);
+    const { getTotalCartAmount, token, setToken, setCartItems } = useContext(StoreContext);
 
     const logout = () => {
         localStorage.removeItem("token");
         setToken("");
         window.location.reload();
     };
+
     useEffect(() => {
         if (localStorage.getItem("token"))
-            setToken(localStorage.getItem("token"))
-    }, [])
+            setToken(localStorage.getItem("token"));
+
+        const savedDarkMode = localStorage.getItem("darkMode") === "true";
+        setDarkMode(savedDarkMode);
+
+        // Apply to entire body
+        document.body.classList.toggle("dark-mode", savedDarkMode);
+    }, []);
+
+    const toggleDarkMode = () => {
+        const newMode = !darkMode;
+        setDarkMode(newMode);
+
+        // Apply dark mode to the entire body
+        document.body.classList.toggle("dark-mode", newMode);
+
+        localStorage.setItem("darkMode", newMode);
+    };
 
 
     return ( <
-            div className = "navbar" >
-            <
-            Link to = "/" >
-            <
-            img src = { assets.logo }
-            alt = ""
-            className = "logo" / >
-            <
-            /Link> {
+        div className = { `navbar ${darkMode ? "dark-mode" : ""}` } >
+        <
+        Link to = "/" >
+        <
+        img src = { assets.logo }
+        alt = ""
+        className = "logo" / >
+        <
+        /Link>
+
+        {
             location.pathname === "/" && ( <
                 ul className = "navbar-menu" >
                 <
@@ -56,8 +75,11 @@ const Navbar = ({ setShowLogin }) => {
                 className = { menu === "contact-us" ? "active" : "" } >
                 contact us <
                 /a> < /
-                ul > )
-        } <
+                ul >
+            )
+        }
+
+        <
         div className = "navbar-right" >
         <
         div className = "navbar-search-icon" >
@@ -65,11 +87,21 @@ const Navbar = ({ setShowLogin }) => {
         Link to = "/cart" >
         <
         img src = { assets.basket_icon }
-    alt = "" / >
+        alt = "" / >
         <
         /Link> <
-    div className = { getTotalCartAmount() === 0 ? "" : "dot" } > < /div> < /
-    div > {!token ? ( <
+        div className = { getTotalCartAmount() === 0 ? "" : "dot" } > < /div> < /
+        div >
+
+        { /* Dark Mode Toggle */ } <
+        button onClick = { toggleDarkMode }
+        style = {
+            { marginRight: "10px" }
+        } > { darkMode ? "☀️ Light" : "🌙 Dark" } <
+        /button>
+
+        {
+            !token ? ( <
                 button onClick = {
                     () => setShowLogin(true)
                 } > sign up < /button>
@@ -102,8 +134,8 @@ const Navbar = ({ setShowLogin }) => {
             )
         } <
         /div> < /
-    div >
-);
+        div >
+    );
 };
 
 export default Navbar;

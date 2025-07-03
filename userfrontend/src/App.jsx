@@ -9,6 +9,7 @@ import PlaceOrder from './screens/PlaceOrder/PlaceOrder';
 import Footer from './components/Footer/Footer';
 import LoginPopup from './components/LoginPopup/LoginPopup';
 import { ToastContainer } from 'react-toastify';
+import './App.css'
 
 const App = () => {
         const [showLogin, setShowLogin] = useState(false);
@@ -40,7 +41,10 @@ const App = () => {
                 />  <
                 Route path = "/myorders"
                 element = { < MyOrders / > }
-                /> < /
+                />
+
+                <
+                /
                 Routes > <
                 /div> <
                 Footer / >
